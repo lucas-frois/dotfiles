@@ -1,7 +1,8 @@
 # WARNING: RUN AS SUDO
 
 # basics
-apt update && apt dist-upgrade && apt install build-essential && apt install curl && apt install gdebi
+apt update && apt dist-upgrade && apt install build-essential
+apt install curl && apt install gdebi && apt install vim
 
 # create basic folder structure
 cd ~/ && mkdir dev && cd dev && mkdir csharp && mkdir tools
@@ -34,8 +35,12 @@ apt install apt-transport-https
 apt update
 apt install dotnet-sdk-3.1
 
+# adding docker.io
+apt install docker.io
+
 # adding oh-my-zsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+chsh -s /bin/zsh
 
 # adding hyper.is
 wget https://hyper-updates.now.sh/download/linux_deb
