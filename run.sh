@@ -1,7 +1,7 @@
 # WARNING: RUN AS SUDO
 
 # basics
-apt update && apt dist-upgrade && apt install build-essential && apt install curl
+apt update && apt dist-upgrade && apt install build-essential && apt install curl && apt install gdebi
 
 # create basic folder structure
 cd ~/ && mkdir dev && cd dev && mkdir csharp && mkdir tools
@@ -34,3 +34,9 @@ apt install apt-transport-https
 apt update
 apt install dotnet-sdk-3.1
 
+# adding oh-my-zsh
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# adding hyper.is
+wget https://hyper-updates.now.sh/download/linux_deb
+gdebi linux_deb
