@@ -4,31 +4,30 @@ sudo apt update && sudo apt dist-upgrade
 sudo apt install build-essential curl wget vim git snapd apt-transport-https gdebi
 sudo apt update && sudo apt dist-upgrade
 
+# adding repositories and getting scripts
+curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+sudo add-apt-repository ppa:atareao/telegram
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-
-sudo apt update && sudo apt dist-upgrade
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 
 # node
-curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 sudo apt install nodejs
 
 # telegram
-sudo add-apt-repository ppa:atareao/telegram
 sudo apt install telegram 
 
-# spotify 
+# spotify
 sudo apt install spotify-client
 
 # chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 # vscode
 sudo snap install code --classic
 
 # dotnet sdk
-wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt update
 sudo apt install dotnet-sdk-3.1
@@ -42,7 +41,6 @@ sudo apt install fonts-firacode
 fc-cache -f -v
 
 # hyper.is
-wget https://hyper-updates.now.sh/download/linux_deb
 sudo gdebi linux_deb
 
 sudo apt install -f
@@ -65,6 +63,10 @@ code --install-extension bceskavich.theme-dracula-at-night
 code --install-extension ms-vscode.csharp
 code --install-extension PKief.material-icon-theme
 code --install-extension jmrog.vscode-nuget-package-manager
+
+# update settings.json
+
+
 # set wallpaper
 dbus-send --session --dest=org.kde.plasmashell --type=method_call /PlasmaShell org.kde.PlasmaShell.evaluateScript 'string:
 var Desktops = desktops();                                                                                                                       
