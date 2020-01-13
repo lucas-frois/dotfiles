@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt update && sudo apt dist-upgrade
-sudo apt install build-essential curl wget vim git snapd apt-transport-https
+sudo apt install build-essential curl wget vim git snapd apt-transport-https gdebi
 sudo apt update && sudo apt dist-upgrade
 
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
@@ -37,6 +37,14 @@ sudo apt install dotnet-sdk-3.1
 sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# install firacode 
+sudo apt install fonts-firacode
+fc-cache -f -v
+
+# hyper.is
+wget https://hyper-updates.now.sh/download/linux_deb
+sudo gdebi linux_deb
+
 sudo apt install -f
 sudo apt autoremove
 
@@ -46,3 +54,23 @@ git config --global user.email "ffrois.lucas@gmail.com"
 cd ~ && mkdir fdev 
 cd fdev && mkdir csharp && mkdir node & mkdir frontend
     
+# get default config
+wget 
+# set chrome extensions
+
+# set vscode extensions 
+code --install-extension bceskavich.theme-dracula-at-night
+code --install-extension ms-vscode.csharp
+code --install-extension PKief.material-icon-theme
+code --install-extension jmrog.vscode-nuget-package-manager
+# set wallpaper
+dbus-send --session --dest=org.kde.plasmashell --type=method_call /PlasmaShell org.kde.PlasmaShell.evaluateScript 'string:
+var Desktops = desktops();                                                                                                                       
+for (i=0;i<Desktops.length;i++) {
+        d = Desktops[i];
+        d.wallpaperPlugin = "org.kde.image";
+        d.currentConfigGroup = Array("Wallpaper",
+                                    "org.kde.image",
+                                    "General");
+        d.writeConfig("Image", "/home/frvs/.defaults/wall.jpg");
+}'
