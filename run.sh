@@ -1,47 +1,48 @@
-# WARNING: RUN AS SUDO
+#!/bin/bash
 
-# basics
-apt update && apt dist-upgrade && apt install build-essential
-apt install curl && apt install gdebi && apt install vim
+sudo apt update && sudo apt dist-upgrade
+sudo apt install build-essential curl wget vim git snapd apt-transport-https
+sudo apt update && sudo apt dist-upgrade
 
-# create basic folder structure
-cd ~/ && mkdir dev && cd dev && mkdir csharp && mkdir tools
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
-# adding snap
-apt install snapd
+sudo apt update && sudo apt dist-upgrade
 
-# adding telegram
-snap install telegram-desktop
-
-# adding spotify
-snap install spotify
-
-# adding node.js
+# node
 curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
-apt install nodejs
+sudo apt install nodejs
 
-# adding chrome
+# telegram
+sudo add-apt-repository ppa:atareao/telegram
+sudo apt install telegram 
+
+# spotify 
+sudo apt install spotify-client
+
+# chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 
-# adding vscode
-snap install code
+# vscode
+sudo snap install code --classic
 
-# adding dotnet sdk
+# dotnet sdk
 wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-dpkg -i packages-microsoft-prod.deb
-apt update
-apt install apt-transport-https
-apt update
-apt install dotnet-sdk-3.1
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt update
+sudo apt install dotnet-sdk-3.1
 
-# adding docker.io
-apt install docker.io
+# zsh and oh-my-zsh
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# adding oh-my-zsh
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-chsh -s /bin/zsh
+sudo apt install -f
+sudo apt autoremove
 
-# adding hyper.is
-wget https://hyper-updates.now.sh/download/linux_deb
-gdebi linux_deb
+git config --global user.name "frvs"
+git config --global user.email "ffrois.lucas@gmail.com"
+
+cd ~ && mkdir fdev 
+cd fdev && mkdir csharp && mkdir node & mkdir frontend
+    
