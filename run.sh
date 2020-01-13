@@ -55,7 +55,9 @@ cd ~ && mkdir fdev
 cd fdev && mkdir csharp && mkdir node & mkdir frontend
     
 # get default config
-wget 
+tar -xzvf defaults.tar.gz -C ~/
+mv ~/defaults ~/.defaults
+ 
 # set chrome extensions
 
 # set vscode extensions 
