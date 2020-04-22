@@ -5,10 +5,7 @@ sudo apt install build-essential curl wget vim git snapd apt-transport-https gde
 sudo apt update && sudo apt dist-upgrade
 
 # adding repositories and getting scripts
-curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
-sudo add-apt-repository ppa:atareao/telegram
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 
