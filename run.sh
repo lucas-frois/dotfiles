@@ -62,8 +62,7 @@ fc-cache -f -v
 sudo apt autoremove
 sudo apt autoclean
 
-git config --global user.name "Lucas Frois"
-git config --global user.email "frois.dev@gmail.com"
+git config --global user.name "Lucas Frois" && git config --global user.email "frois.dev@gmail.com"
 
 cd ~ && mkdir dev 
 cd dev && mkdir backend && mkdir frontend
