@@ -3,7 +3,7 @@
 # currently doing changes to avoid snap. its for your sanity, trust me (the lucas that worked the whole night)
 
 sudo apt update && sudo apt dist-upgrade
-sudo apt install build-essential curl wget vim git
+sudo apt install build-essential curl wget vim git software-properties-common apt-transport-https
 sudo apt update && sudo apt dist-upgrade
 
 # dotnet 6
@@ -23,6 +23,9 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 sudo apt install spotify-client
 
 # vscode
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt update
 sudo apt install code
 
 # fish (instead of zsh)
@@ -41,7 +44,7 @@ cd ~ && mkdir dev
 cd dev && mkdir backend && mkdir frontend
 
 # set vscode extensions 
-code --install-extension bceskavich.theme-dracula-at-night
+code --install-extension bceskavich.theme-dracula-at-night &&
 code --install-extension ms-vscode.csharp
 code --install-extension PKief.material-icon-theme
 code --install-extension jmrog.vscode-nuget-package-manager
