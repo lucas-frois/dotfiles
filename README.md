@@ -12,6 +12,11 @@ setup default apps to my machines
 
 ```./run.sh```
 
+OR
+
+```curl -o- https://raw.githubusercontent.com/frvs/default-image/master/run.sh | bash```
+to avoid deleting the script
+
 ## warnings
 * there are some personal configs, like my git configs
 * actually that script requires to user prompt. im not sure if gonna change this
