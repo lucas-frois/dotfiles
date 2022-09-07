@@ -16,6 +16,10 @@ sudo apt-get update && sudo apt-get install dotnet-sdk-6.0 -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install node # didnt work, fix later
 nvm use node # didnt work, fix later. maybe bc we need to reload bash
+# try again in the following way
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install node &
+nvm use node &
 
 # telegram
 sudo apt install telegram-desktop -y
@@ -51,3 +55,6 @@ cd dev && mkdir backend && mkdir frontend
 code --install-extension bceskavich.theme-dracula-at-night &&
 code --install-extension ms-dotnettools.csharp &&
 code --install-extension PKief.material-icon-theme
+
+# try in the next attempt ( curl etc | bash)
+rm ~/run.sh
